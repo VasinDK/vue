@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <title>vue component</title>
+</head>
+<body>
+<div class="row m-3">
+<div class="col">
+    <div class="row">
+        <div class="col">
+            <h1>Тестируем работу компонентов vue js </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="">Возможные шрифты для vs code:</div>
+            <div class="">Consolas, 'Courier New', monospace</div>
+            <div class="">Candara Light
+            <div class="">Segoe UI Light</div>
+            <div class="">Cascadia Code Light</div>
+        </div>
+    </div>
+</div>    
+        
+
+    <div class="" id='vue'>
+        <h2 v-show="showH2">Привет</h2>
+        <input type="text" name="" id="" v-model="name" >
+
+        <button v-on:click="showH2  =  !showH2" class="btn btn-success">Жми проверим</button>
+        <br>
+        <br>
+        <button v-bind:disabled="done" v-on:click="addNamber" class="btn btn-success">Добавляем по клику </button>
+        <div class="row my-3">
+            <div class="col">
+                <div class="alert alert-success">Сумма: {{ sum }}</div>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <ul>
+            <li
+                v-for="namber in nambers"
+            >
+            {{ namber }}</li>
+        </ul>
+
+        <app-progress v-bind:max="maxNambers" 
+                                      v-bind:val="nambers.length">
+        </app-progress>
+    </div>
+
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/vue_test.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
