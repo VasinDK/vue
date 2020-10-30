@@ -32,6 +32,7 @@ var vm = new Vue ({
 
     },
     methods: {
+        // вычесляются постоянно. Дорого
         addNamber () {
             if (!this.done){
                 this.nambers.push (Math.random());
@@ -40,6 +41,7 @@ var vm = new Vue ({
         
     },
     computed: {
+        // вычесляемое свойство, только при изменении одного из его свойства. Должно выполняться сразу
         sum () {
             let sum = 0;
             for (let i = 0; i < this.nambers.length; i++) {
@@ -50,6 +52,9 @@ var vm = new Vue ({
         done () {
             return this.nambers.length >=  this.maxNambers
         }
+    },
+    watch:{
+        // используется при отработке асинхронных операций. Например обращение на сервер
     }
 })
 
@@ -58,11 +63,17 @@ var vm = new Vue ({
  * 
  * В " " прописывается по сути код java script-a. А ковычки его обрамляют
  * v-show = "true/false" - показывает или скрывает то где находится
+ * 
+ * v-if="" - если внутри if будет true, то показываем тег.
+ *      можно дополнить <template v-else> <div>...</div> </template>  в доме покажется <div></div> и его содержимое но не покажется <template></template>
+ * 
  * v-on:click = ""  (или @click) -  слушает событие. При наступлении исполняет то, что в ковычках
  *       v-on:click.once = ""  - событие осуществляется единожды
  * v-bind:title = "showH2 ? 'Hide' : 'show' "  (или :title = ...)  - позволяет записать динамическое значение в html атрибут
  * v-for = "namber in nambers" - вывод записей массива в тегах в который был добавлен
+ *      :key="key" - по умолчанию vue задает значение index. Но лучше ставить id, например user.id
  * v-model = "name"  - для двунаправленного связывания данных с элементами форм input, textarea и select. Переменная "name" принемает введенное в поле значение 
+ *      v-model.lazy - срабатывает после смены фокуса.
  * 
  * 
  */
